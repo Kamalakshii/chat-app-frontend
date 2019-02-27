@@ -1,0 +1,98 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+.App-header {
+  background-color: #5f687a;
+  min-height: 200vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(100px + 2vmin);
+  color: white;
+}
+.App-link {
+  color: #61dafb;
+}
+
+.button
+{
+   margin-top:250px;
+  padding: 10px 40px;
+}
+#buttonalign {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 400px;
+  margin-top: 30px;
+  margin-right: 400px;
+}
+
+
+#forgetbutton{
+  margin-top: 6px;
+      margin-left: 24px;
+  }
+
+.TextField{
+  
+  text-justify: auto;
+  height: 100%;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+
+
+  text-align: center;
+  margin : auto;
+  background-color: #7a859b;
+  color: #61dafb;
+  line-height: 1.5;
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+.Input-Field{
+
+  height: 100%;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+
+  text-align: center;
+  margin : auto;
+  background-image: url('../src/assets/image.png');
+
+  line-height: 1.5;
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+input{
+  padding: 10px 41px;
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
