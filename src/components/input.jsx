@@ -17,7 +17,6 @@ export default class Input extends Component {
   
     render() {
         return (
-            
             <div>
                 < TextField label={this.props.label} type={this.props.type}
                     value={this.state.value}
@@ -31,29 +30,6 @@ export default class Input extends Component {
     }
 }
 
-// export default class Inputpassword extends Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             password: '',
 
-//         }
-//     }
-//     handleChange = event => {
-//         this.setState({
-//             password: event.target.value,
-
-//         });
-//         this.props.handlepassword(this.state.password);
-//     }
-//     render() {
-//         return (
-//             < TextField label="password" type="text"
-//                 value={this.state.password}
-//                 onChange={this.handleChange}
-//             />
-//         )
-//     }
-// }
 
 

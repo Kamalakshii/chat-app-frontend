@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import { Button } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import '../App.css';
 import Button from '@material-ui/core/Button';
@@ -41,7 +40,6 @@ class ForgotPassword extends Component {
         this.setState({ open: false });
     };
     handleChange = name => event => {
-
         this.setState({ [name]: event.target.value });
     }
     render() {

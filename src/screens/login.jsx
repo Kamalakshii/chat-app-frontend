@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
 import '../App.css';
@@ -6,7 +5,6 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Snackbar from '@material-ui/core/Snackbar';
-
 import { userLogin } from '../services/userServices'
 class
     Loginpage extends Component {
@@ -29,22 +27,20 @@ class
         if (reason === 'clickaway') {
             return;
         }
-
         this.setState({ open: false });
     };
 
     handleReg = event => {
         event.preventDefault();
         this.props.history.push("/register");
-
     }
     handleSubmit = event => {
         event.preventDefault();
         // console.log(this.state.username);
         //  console.log(this.state.username === '');
         //  console.log("hai how are u");
-        console.log("msg in login page======>,", this.state.email);
-        console.log("password in  login===>", this.state.password);
+        console.log("The message in login page is ===>,", this.state.email);
+        console.log("The password in login is ===>", this.state.password);
         var Emailverify = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.state.email);
 
         console.log("this.state.email === ''", this.state.email === '');
@@ -53,7 +49,7 @@ class
 
             this.setState({ open: true });
         }
-        else if (this.state.password === '' || this.state.password.length < 6) {
+        else if (this.state.password === '' || this.state.password.length < 8) {
             this.setState({ open: true });
         }
 
@@ -64,16 +60,13 @@ class
             }
             userLogin(data)
                 .then((res) => {
-
                       console.log("responce true",res);
                     console.log(this.state.email);
                     localStorage.setItem('Sender', this.state.email);
-                    
                     this.props.history.push("/dashBoard");
 
                 }).catch((err) => {
                     console.log("err", err);
-
                     alert("Login unsuccessful!!");
                 })
           
@@ -82,13 +75,11 @@ class
 
     handleChange = name => {
         console.log("hai name in login " + name);
-
         this.setState({ [name]: name });
     };
 
     handleChange1 = name => event => {
         console.log("hai name in login " + name);
-
         this.setState({ [name]: event.target.value });
     };
 
@@ -98,14 +89,12 @@ class
 
         return (
             <div>
-
                 <div >
                     <form align="center">
 
                         <div className="Input-Field">
                             <h1>Welcome to Chat-App</h1>
                             <div>
-
                                 {/* <Input handleChange={this.handleChange} type={"text"} label={"Email"} />
                              <Input handleChange={this.handleChange} type={"password"} label={"Password"} /> */}
 
@@ -115,7 +104,6 @@ class
                                 <br />
                             </div>
                             <div>
-
                                 {/* <Inputpassword handlepassword={this.handleChange} /> */}
                                 <TextField className="margin" label="password" type="password"
                                     onChange={this.handleChange1('password')}
