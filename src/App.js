@@ -3,7 +3,7 @@ import Login  from './screens/login';
 import RegisterPage  from './screens/register';
 import ForgetPassword from './screens/forgot';
 import ResetPage from './screens/reset'
-import dashBoard from "../src/screens/dashboard";
+import dashBoard from "./screens/dashboard";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
 class App extends Component {

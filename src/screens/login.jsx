@@ -86,7 +86,6 @@ class
     render() {
         // console.log("msg in login page======>,",this.state.email);
         // console.log("password in  login===>",this.state.password);
-
         return (
             <div>
                 <div >

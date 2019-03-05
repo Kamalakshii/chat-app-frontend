@@ -5,22 +5,11 @@ function userRegister(data) {
 function userLogin(data) {
    return axios.post('/login', data);
 }
-{/*function verifyEmail(data) {
-    axios.post('/forgot', data)
-        .then(function (response) {
-
-            alert(' plz check your email..')
-        })
-        .catch(function (err) {
-            console.log(err);
-            alert('User Not Found..');
-        });
-}*/}
 function forgotPassword(data){
     
      axios.post('/forgotpassword',data)
     .then(function(response){
-        console.log("reeesssss=====",response);
+        console.log("reee=====",response);
         alert('Kindly check your mail....');
     })
     .catch(function(err){
