@@ -1,3 +1,9 @@
+/******************************************************************************
+ *  @Purpose        : To import all the pages by using particular path.
+ *  @file           : App.js        
+ *  @author         : KAMALAKSHI C SWAMY
+ *  @since          : 01-03-2019
+ ******************************************************************************/
 import React, { Component } from 'react';
 import Login  from './screens/login';
 import RegisterPage  from './screens/register';

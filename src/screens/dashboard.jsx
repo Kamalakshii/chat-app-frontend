@@ -1,3 +1,9 @@
+/*************************************************************************************
+ *  @Purpose        : To create dashboard to display the chat messages and users list.
+ *  @file           : dashboard.jsx        
+ *  @author         : KAMALAKSHI C SWAMY
+ *  @since          : 02-03-2019
+ ************************************************************************************/
 import '../components/appBar';
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
@@ -7,6 +13,9 @@ import io from 'socket.io-client';
 import MenuItem from '@material-ui/core/MenuItem';
 import { chatServices, userChatArray } from "../services/chatService";
 import '../App.css';
+/**
+ * to import socket.io  and set the  port number of server
+ */
 const socket = io.connect('http://localhost:4000');
 export default class dashBoard extends Component {
     constructor(props) {
@@ -23,7 +32,7 @@ export default class dashBoard extends Component {
     }
     componentDidMount() {
         /**
-         * Get all the users data
+         * to get data of the user
          **/
         chatServices()
             .then((result) => {
@@ -35,12 +44,15 @@ export default class dashBoard extends Component {
             .catch((error) => {
                 alert(error)
             });
+        /**
+         * To get users chat history and display
+         **/
         userChatArray()
             .then((result) => {
                 this.setState({
                     MsgArray: result.data.result
                 })
-                console.log("chat history is :", this.state.MsgArray);
+                console.log("The Chat history is ", this.state.MsgArray);
             })
             .catch((error) => {
                 alert(error);
@@ -48,7 +60,7 @@ export default class dashBoard extends Component {
 
         const Sender = localStorage.getItem('Sender');
         socket.on(Sender, (res) => {
-            console.log("response in dash board ==>", res);
+            console.log("The response in the dash board is : ", res);
             const msg = this.state.msg;
             msg.push(res);
             this.setState({ msg: msg });
@@ -69,10 +81,15 @@ export default class dashBoard extends Component {
         event.preventDefault();
         this.props.history.push("/login");
     }
+    /**
+     * to take the message that was typed currently
+     */
     handleMessage = (e) => {
         this.setState({ message: e.target.value });
     }
-
+    /**
+     * it submit the send icon and message will be displayed to selected user
+     */
     handleSubmit = event => {
         event.preventDefault();
         if (!this.state.message) {
@@ -80,6 +97,9 @@ export default class dashBoard extends Component {
         } else if (this.state.isUserSelected === false)
             this.props.history.push("/dashboard");
         else {
+            /**
+         * To get the sender who has login to the application from the localstorage
+         **/
             const Sender = localStorage.getItem("Sender");
             this.setState({ Sender: Sender });
             console.log("Sender is :", Sender);
@@ -116,10 +136,7 @@ export default class dashBoard extends Component {
                             <div className="sender-div">
                                 {
                                     <label>
-                                        <i>
-                                            {key.senderId}
-                                        </i>
-                                        :
+                                        <i> {key.senderId} </i>:                    
             </label>
                                 }
                                 <div>{key.message}</div>
@@ -130,10 +147,7 @@ export default class dashBoard extends Component {
                         <div className="receiver-div">
                             <label>
                                 {" "}
-                                <i>
-                                    {key.senderId}
-                                </i>
-                                :
+                                <i> {key.senderId} </i>:     
             </label>
                             <div>{key.message} </div>
                         </div>
@@ -149,10 +163,7 @@ export default class dashBoard extends Component {
                         key.senderId === this.state.Sender ? (
                             <div className="sender-div">
                                 <label>
-                                    <i>
-                                        {key.senderId}
-                                    </i>
-                                    :
+                                    <i>  {key.senderId} </i>:                 
             </label>
                                 <div>{key.message}</div>
                             </div>
@@ -161,10 +172,8 @@ export default class dashBoard extends Component {
                     {key.senderId === this.state.Receiver ? (
                         <div className="receiver-div">
                             <label>
-                                <i>
-                                    {key.senderId}
-                                </i>
-                                :
+                                <i>{key.senderId}</i>
+                                :       
             </label>
                             <div>{key.message}</div>
                         </div>
@@ -184,7 +193,7 @@ export default class dashBoard extends Component {
                     <label><b>Users List:-</b></label>
                     {loginUsers}
                 </div>
-                <h3>{this.state.Sender} In conversation with {this.state.Receiver}</h3>
+                <h3>{this.state.Sender} In conversation with <br/>{this.state.Receiver}</h3>
                 <div>
                     <p><h4><u>Login User</u>:-{localStorage.getItem('Sender')}</h4></p>
                     <div className="dashboard">

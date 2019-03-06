@@ -182,9 +182,6 @@ input{
 .root{
   background-image: url('../src/assets/image.png');
   overflow-x: hidden;
-  
- 
-
 }
 .sender-div{
   margin-left: 540px;

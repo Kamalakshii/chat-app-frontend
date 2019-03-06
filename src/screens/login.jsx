@@ -1,3 +1,9 @@
+/********************************************************************************
+ *  @Purpose        : To create a login page for login to the registered account.
+ *  @file           : login.jsx        
+ *  @author         : KAMALAKSHI C SWAMY
+ *  @since          : 27-02-2019
+ *********************************************************************************/
 import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
 import '../App.css';
@@ -36,9 +42,6 @@ class
     }
     handleSubmit = event => {
         event.preventDefault();
-        // console.log(this.state.username);
-        //  console.log(this.state.username === '');
-        //  console.log("hai how are u");
         console.log("The message in login page is ===>,", this.state.email);
         console.log("The password in login is ===>", this.state.password);
         var Emailverify = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.state.email);
@@ -60,7 +63,7 @@ class
             }
             userLogin(data)
                 .then((res) => {
-                      console.log("responce true",res);
+                    console.log("response true", res);
                     console.log(this.state.email);
                     localStorage.setItem('Sender', this.state.email);
                     this.props.history.push("/dashBoard");
@@ -69,23 +72,20 @@ class
                     console.log("err", err);
                     alert("Login unsuccessful!!");
                 })
-          
         }
     }
 
     handleChange = name => {
-        console.log("hai name in login " + name);
+        console.log("name in login " + name);
         this.setState({ [name]: name });
     };
 
     handleChange1 = name => event => {
-        console.log("hai name in login " + name);
+        console.log("name in login " + name);
         this.setState({ [name]: event.target.value });
     };
 
     render() {
-        // console.log("msg in login page======>,",this.state.email);
-        // console.log("password in  login===>",this.state.password);
         return (
             <div>
                 <div >
@@ -115,10 +115,9 @@ class
                         </div>
                         <div className="button">
                             <div id="buttonalign" >
-                               <Button variant="contained" color="primary" className="button" onClick={this.handleSubmit} > SUBMIT</Button>
+                                <Button variant="contained" color="primary" className="button" onClick={this.handleSubmit} > SUBMIT</Button>
                                 <Button variant="contained" color="primary" className="button" onClick={this.handleReg} > REGISTER</Button>
-                            
-                                </div>
+                            </div>
 
                             <br />
                             <div id="forgetbutton" >

@@ -1,3 +1,10 @@
+/******************************************************************************
+ *  @Purpose        : To create a forgot password page to recover the password
+                      using mail.
+ *  @file           : forgot.jsx       
+ *  @author         : KAMALAKSHI C SWAMY
+ *  @since          : 27-02-2019
+ ******************************************************************************/
 import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
 import '../App.css';
@@ -14,6 +21,7 @@ class ForgotPassword extends Component {
             open: false,
         }
     }
+    
     handlesubmit = event => {
         event.preventDefault();
         console.log("this.state.email ");

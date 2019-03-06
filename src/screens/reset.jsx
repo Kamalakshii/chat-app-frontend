@@ -1,3 +1,9 @@
+/******************************************************************************
+ *  @Purpose        : Create a resetPassword page to reset the new password.
+ *  @file           : reset.jsx        
+ *  @author         : KAMALAKSHI C SWAMY
+ *  @since          : 01-02-2019
+ ******************************************************************************/
 import React, { Component } from 'react';
 import Snackbar from '@material-ui/core/Snackbar';
 import TextField from '@material-ui/core/TextField';
@@ -40,12 +46,9 @@ class ResetPassword extends Component {
         else {
             var data = {
                 password: this.state.password,
-
             }
             console.log(data.password);
-
             let currenturl = window.location.pathname;
-
             let token = currenturl.substr(15);
             console.log("Current url", currenturl);
             console.log("Token is:", token);
@@ -53,11 +56,9 @@ class ResetPassword extends Component {
                 .then((res) => {
                     console.log("reset page getting true ");
                     this.props.history.push("/Login")
-
                 })
                 .catch((err)=>{
                      alert("plz try again later");
-                    
                 })
         }
     }

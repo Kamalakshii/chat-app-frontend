@@ -1,3 +1,9 @@
+/******************************************************************************
+ *  @Purpose        : Create a registration page to register the users .
+ *  @file           : register.jsx        
+ *  @author         : KAMALAKSHI C SWAMY
+ *  @since          : 28-02-2019
+ ******************************************************************************/
 import React, { Component } from 'react';
 import '../App.css';
 import TextField from '@material-ui/core/TextField';
@@ -37,15 +43,21 @@ class RegisterPage extends Component {
         if (this.state.firstname === '') {
             this.setState({ open: true });
         }
-
+        /** 
+         * takes the last name
+         */
         else if (this.state.lastname === '') {
             this.setState({ open: true });
         }
-
+        /** 
+         * takes the email
+         */
         else if (this.state.email === '' || !Emailverify) {
             this.setState({ open: true });
         }
-
+        /** 
+         * takes the password
+         */
         else if (this.state.password === '' || this.state.password.length < 8) {
             this.setState({ open: true });
         }
@@ -57,8 +69,8 @@ class RegisterPage extends Component {
                 password: this.state.password
             }
             userRegister(data)
-                .then((responce) => {
-                    console.log("hai how are u", responce);
+                .then((response) => {
+                    console.log("hai how are u", response);
                     this.props.history.push("/Login");
                 })
         }
